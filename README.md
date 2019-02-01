@@ -3,11 +3,11 @@ Predict House Price
 
 Capstone Project 2 Milestone Report
 
-Introduction
+# Introduction
 
 The price of a house is dependent on various factors like size or area, how many bedrooms, location, the price of other houses, and many other factors. Real estate investors would like to find out the actual cost of the house in order to buy and sell real estate properties. They will lose money when they pay more than the current market cost of the house and when they sell for less than current market cost. The banks also want to find the current market price for the house, when they use someone's house as collateral for loans. Sometimes loan applicant overvalues their house to borrow the maximum loan from the bank. Banks and financial institutions also provide mortgage loan to home buyers. Local home buyers can also predict the price of the house to find out if a seller is asking for too much. The local seller can also predict their house price and find out how much is a fair market price. 
 
-Descriptive Data Analysis
+# Descriptive Data Analysis
 
 The dataset for this project is downloaded as a csv file from the Kaggle website. This dataset contains house sale prices for King County, which includes Seattle. It includes homes sold between May 2014 and May 2015. The data set consists of 21613 observations and 19 features plus the house price and the id columns.
 
@@ -99,11 +99,11 @@ Sqft_lot vs price_bin plot shows that houses priced 0 to 500,000 have an inverse
 Median house grade vs price_bin plot shows a direct relationship between median house grade and price_bin. 
 I also drew scatter plot to find if there is any correlation between price and other features. Price vs number of bedrooms shows a positive correlation between price and number of bedrooms. It also shows us some outliers data. Price vs number of bathrooms shows some positive correlation with some outliers. Price vs sqft_living also shows a positive correlation. Price vs sqft_lot shows some positive correlation but many outliers. Price vs number of floors, price vs waterfront, price vs view, and price vs condition shows very weak correlation. Price vs grade, price vs sqft_above, price vs sqft_basement, price vs sqft_living15, and price vs sqft_lot15 shows a positive correlation. 
 
-Data Wrangling and Cleaning
+# Data Wrangling and Cleaning
 
 I created a copy of the dataframe df called new_df in order to perform data wrangling. First, I created a function named remove_outliers which takes two input as parameters. One is the string name of the column, and another is the name of the dataframe. Inside the function, interquartile range is calculated. Then, we will locate the outliers using the upper and lower limit values. Then, we will drop the observation which has outliers. I removed outliers from price, bathrooms, sqft_living, sqft_lot, sqft_above, sqft_basement, sqft_living15, and sqft_lot15. For the column bedrooms, there was a bad data 33 which looks like a mistakenly entered data. I checked to see what the features of the house with 33 bedrooms were. Comparing median sqft_living and median sqft_lot size, I found that the mistake data must be 3 instead of 33. I plotted a box plot for the column bedroom to see if there are any other outliers. The plot shows that there are some outliers in the data set. I decided to remove outliers with more than 6 bedrooms and less than 1 bedrooms because few houses have more than 6 bedrooms and less than 1 bedrooms. Majority of the houses have more than 1 bedroom and less than 6 bedrooms. After data wrangling, we have 16,496 observations in our dataset. 
 
-Data Story
+# Data Story
 
 I defined a function which takes three parameters as input i.e. x_input, y_input, and data. This function will plot a scatterplot with a regression line. I drew a scatterplot of price vs most of the features from the dataset. 
 
@@ -153,11 +153,11 @@ The bar plot average price vs basement shows house with a basement has the highe
 
 The bar plot average price vs renovated shows house which is renovated has the highest average price. 
 
-Inferential Statistics
+# Inferential Statistics
 
 I conducted a hypothesis test to check if there is no significant correlation between a number of bedroom and price. The p-value for the hypothesis test is less than the level of significance 0.05, so we reject the null hypothesis. So we support that there is a correlation between a number of bedrooms and price. I also conducted a hypothesis test to check the correlation between a number of bathrooms and price. The p-value for the hypothesis test is less than the level of significance 0.05, so we reject the null hypothesis and suggest that there is a correlation between a number of bathrooms and price. Similarly, I conducted a hypothesis test to check the correlation between sqft_living and price. The p-value for the hypothesis test is less than the level of significance 0.05, so we reject the null hypothesis and suggest that there is a correlation between sqft_living and price. I also conducted a hypothesis test to check if there is a correlation between grade and price. The test suggests that there is a correlation between grade and price. I also conducted a hypothesis test to check if there is no statistical importance between mean house price and a number of bedrooms less than 3 and greater than 3. The p-value for the test was greater than the level of significance 0.05, so we fail to reject the null hypothesis. This suggests us that there is no statistical importance between mean house price and a number of bedrooms less than 3 and greater than 3. 
 
-Machine Learning
+# Machine Learning
 
 In this project, I use the dataset for supervised machine learning to predict house price. I build 4 different Regression models i.e. Linear Regression, Decision Tree Regression, Gradient Boosted Regression, and Random Forest Regression. I compared the performance of those models using R^2 because it is the ratio between how good our model is vs how good is the naive mean model. I finally recommend the better performing model to predict house price.
 
@@ -207,11 +207,12 @@ Next, I used GridSearchCV to tune the Hyperparameters of the model to improve th
 
 According to the Root Mean Squared Error, Gradient Boost Regression model is the best performing model with the lowest error 115222. 
 
-
 According to the r2_score, Gradient Boost Regression model is the best performing model with the highest score of 0.86.
 
 According to the Mean Absolute Error (MAE), Gradient Boost Regression model is the best performing model with lowest error 49098.4.
 
 According to the Mean absolute percentage error (MAPE), Gradient Boost Regression model is the best performing model with lowest percentage error 12%. All of the metrics suggest that Gradient Boosted Regression model is the better performing model for this dataset. 
+
+# Conclusion
 
 Gradient Boosting Regression model is a good model to predict house price because it is better than a random guess and it outperforms the other three Regression Model. The model may be improved in the future with more data collection. Many other Regression models which are not included in this project can also be built and tried. I would recommend this Gradient Boosting Regression model to predict house price. 
